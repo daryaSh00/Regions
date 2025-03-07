@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using Regions.Application.Common.Interfaces;
+using Regions.Infrastructure.Data;
+using Regions.Infrastructure.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApplicationDbContext>(option =>
+option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddHostedService<CityNameUpdateService>();
 
 var app = builder.Build();
 

@@ -1,21 +1,34 @@
-using System.Diagnostics;
+﻿// Regions.Web/Controllers/HomeController.cs
 using Microsoft.AspNetCore.Mvc;
+using Regions.Application.Common.Interfaces;
 using Regions.Web.Models;
+using Regions.Web.ViewModel;
+using System.Diagnostics;
 
 namespace Regions.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _logger = logger;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var model = new HomeViewModel
+            {
+                ProvinceCount = _unitOfWork.Province.GetAll().Count(),
+                CityCount = _unitOfWork.City.GetAll().Count(),
+                DistrictCount = _unitOfWork.District.GetAll().Count(),
+                RecentProvinces = _unitOfWork.Province.GetAll(includeProperties: "Cities")
+                    .OrderByDescending(p => p.Id)
+                    .Take(5)
+                    .ToList() 
+            };
+            return View(model);
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,27 @@
+﻿@* Regions.Web/Views/City/Index.cshtml *@
+@{
+    ViewData["Title"] = "City List";
+}
+
+<div class="container mt-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-header bg-success text-white text-center py-3">
+            <h2>لیست شهر ها</h2>
+        </div>
+        <div class="card-body p-4">
+            <table id="cityTable" class="table table-bordered table-striped table-hover w-100">
+                <thead class="table-dark">
+                    <tr>
+                        <th>نام شهر</th>
+                        <th>نام استان</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/city.js"></script>
+}

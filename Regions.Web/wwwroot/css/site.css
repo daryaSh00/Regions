@@ -20,3 +20,19 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#provinceTable th {
+    text-align: right;
+}
+
+#districtTable th {
+    text-align: right;
+}
+
+#cityTable th {
+    text-align: right;
+}
+
+#recentProvinces th {
+    text-align: right;
+}

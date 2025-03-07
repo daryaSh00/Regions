@@ -1,0 +1,28 @@
+﻿@* Regions.Web/Views/District/Index.cshtml *@
+@{
+    ViewData["Title"] = "District List";
+}
+
+<div class="container mt-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-header bg-success text-white text-center py-3">
+            <h2>لیست نواحی</h2>
+        </div>
+        <div class="card-body p-4">
+            <table id="districtTable" class="table table-bordered table-striped table-hover w-100">
+                <thead class="table-dark">
+                    <tr>
+                        <th>نام ناحیه</th>
+                        <th>نام شهر</th>
+                        <th>نام استان</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/district.js"></script>
+}

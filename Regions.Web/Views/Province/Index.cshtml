@@ -1,0 +1,35 @@
+﻿@* Regions.Web/Views/Province/Index.cshtml *@
+@{
+    ViewData["Title"] = "Province List";
+}
+
+<div class="container mt-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-header bg-success text-light text-center py-3">
+            <h2>لیست استان ها</h2> 
+        </div>
+        <div class="card-body p-4">
+            <div class="row mb-3">
+                <div class="col-12 text-end">
+                    <a asp-controller="Province" asp-action="CreateRandomProvinces" class="btn bg-light">
+                        <i class="bi bi-plus-circle me-2"></i>ایجاد ده استان جدید
+                    </a>
+                </div>
+            </div>
+            <hr />
+            <table id="provinceTable" class="table table-bordered table-striped table-hover w-100">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>نام استان</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/province.js"></script>
+}
